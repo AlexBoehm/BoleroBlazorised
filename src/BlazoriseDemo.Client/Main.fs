@@ -14,6 +14,7 @@ type Page =
     | [<EndPoint "/">] Home
     | [<EndPoint "/counter">] Counter
     | [<EndPoint "/data">] Data
+    | [<EndPoint "/blazorise">] Blazorise
 
 /// The Elmish application's model.
 type Model =
@@ -200,6 +201,7 @@ let view model dispatch =
             menuItem model Home "Home"
             menuItem model Counter "Counter"
             menuItem model Data "Download data"
+            menuItem model Blazorise "Blazorise"
         ])
         .Body(
             cond model.page <| function
@@ -209,6 +211,8 @@ let view model dispatch =
                 cond model.signedInAs <| function
                 | Some username -> dataPage model username dispatch
                 | None -> signInPage model dispatch
+            | Blazorise ->
+                comp<Blazorise.Button> [ "Color" => Blazorise.Color.Primary] [ text "Button" ]
         )
         .Error(
             cond model.error <| function
