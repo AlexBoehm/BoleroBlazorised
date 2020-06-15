@@ -9,6 +9,8 @@ open Bolero
 open Bolero.Remoting.Server
 open Bolero.Server.RazorHost
 open BlazoriseDemo
+open Blazorise
+open Blazorise.Bootstrap
 open Bolero.Templating.Server
 
 type Startup() =
@@ -27,6 +29,12 @@ type Startup() =
             .AddBoleroHost()
 #if DEBUG
             .AddHotReload(templateDir = __SOURCE_DIRECTORY__ + "/../BlazoriseDemo.Client")
+            .AddBlazorise(fun options -> 
+                options.ChangeTextOnKeyPress <- true
+                ()
+            )
+            .AddBootstrapProviders()
+
 #endif
         |> ignore
 

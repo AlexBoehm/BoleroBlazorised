@@ -9,6 +9,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BlazoriseDemo.Client\BlazoriseDemo.Client.fsproj" />
+    <PackageReference Include="Blazorise.Bootstrap" Version="0.9.0.3" />
     <PackageReference Include="Bolero.Server" Version="0.13.23" />
     <PackageReference Include="Bolero.HotReload.Server" Version="0.13.8" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="3.2.0" />
